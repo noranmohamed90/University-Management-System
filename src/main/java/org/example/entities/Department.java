@@ -3,6 +3,8 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "departement")
 public class Department {
@@ -12,6 +14,9 @@ public class Department {
     private int dep_id;
     private String dep_name;
     private String dep_location;
+
+    @OneToMany(mappedBy = "department")
+    private List<Student>student;
 
 
     public int getDep_id() {
@@ -38,4 +43,12 @@ public class Department {
         this.dep_location = dep_location;
     }
 
+    @Override
+    public String toString() {
+        return "Department{" +
+                "dep_id=" + dep_id +
+                ", dep_name='" + dep_name + '\'' +
+                ", dep_location='" + dep_location + '\'' +
+                '}';
+    }
 }

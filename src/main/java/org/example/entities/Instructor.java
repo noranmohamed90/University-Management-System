@@ -3,6 +3,8 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "instructor")
 public class Instructor {
@@ -15,6 +17,10 @@ public class Instructor {
     private String ins_specialization;
     private String ins_phone;
     private String ins_email;
+
+
+    @OneToMany(mappedBy = "instructor")
+    private List<Course>course;
 
 
     public int getIns_id() {
@@ -63,5 +69,17 @@ public class Instructor {
 
     public void setIns_email(String ins_email) {
         this.ins_email = ins_email;
+    }
+
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "ins_id=" + ins_id +
+                ", ins_name='" + ins_name + '\'' +
+                ", ins_salary=" + ins_salary +
+                ", ins_specialization='" + ins_specialization + '\'' +
+                ", ins_phone='" + ins_phone + '\'' +
+                ", ins_email='" + ins_email + '\'' +
+                '}';
     }
 }

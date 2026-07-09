@@ -2,10 +2,7 @@ package org.example;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import org.example.entities.Course;
-import org.example.entities.Department;
-import org.example.entities.Instructor;
-import org.example.entities.Student;
+import org.example.entities.*;
 import org.example.persistence.customePersistenceUnitInfo;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 
@@ -22,8 +19,8 @@ public class Main {
         String jdbcUrl = "jdbc:mysql://localhost/uni_system";
         String userName = "root";
         String pass = "123456";
-        List<String> mangedClassName =List.of("org.example.entities.Students","org.example.entities.Instructor",
-                "org.example.entities.Department","org.example.entities.Course");
+        List<String> mangedClassName =List.of("org.example.entities.Student","org.example.entities.Instructor",
+                "org.example.entities.Department","org.example.entities.Course","org.example.entities.Student_Card");
 
         HashMap<?, ?> props = new HashMap<>();
 
