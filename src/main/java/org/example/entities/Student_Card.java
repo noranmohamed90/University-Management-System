@@ -16,11 +16,6 @@ public class Student_Card {
     private String expireDate;
 
 
-
-
-
-
-
     public int getId() {
         return id;
     }

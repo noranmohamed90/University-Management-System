@@ -7,6 +7,9 @@ import org.hibernate.annotations.Cascade;
 import java.util.List;
 
 @Entity
+@NamedQueries(
+        @NamedQuery(name = "StudentsWithCourses", query = "SELECT s FROM Student s JOIN  s.course crs ")
+)
 @Table(name = "students")
 public class Student {
 
@@ -34,7 +37,7 @@ public class Student {
     @Column(name = "St_age")
     private int age;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name = "St_Card_id")
     private Student_Card Student_Card;
 

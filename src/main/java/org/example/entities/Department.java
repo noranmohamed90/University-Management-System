@@ -18,6 +18,9 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private List<Student>student;
 
+    @OneToMany(mappedBy = "department")
+    private List<Instructor>instructor;
+
 
     public int getDep_id() {
         return dep_id;
@@ -43,12 +46,30 @@ public class Department {
         this.dep_location = dep_location;
     }
 
+
     @Override
     public String toString() {
         return "Department{" +
                 "dep_id=" + dep_id +
                 ", dep_name='" + dep_name + '\'' +
                 ", dep_location='" + dep_location + '\'' +
+
                 '}';
+    }
+
+    public List<Student> getStudent() {
+        return student;
+    }
+
+    public void setStudent(List<Student> student) {
+        this.student = student;
+    }
+
+    public List<Instructor> getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(List<Instructor> instructor) {
+        this.instructor = instructor;
     }
 }

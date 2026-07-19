@@ -7,6 +7,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "instructor")
+@NamedEntityGraph(
+        name = "instructor.course",
+        attributeNodes = @NamedAttributeNode("course")
+)
 public class Instructor {
 
     @Id
@@ -21,6 +25,10 @@ public class Instructor {
 
     @OneToMany(mappedBy = "instructor")
     private List<Course>course;
+
+    @ManyToOne
+    @JoinColumn(name = "dep_id")
+    private Department department;
 
 
     public int getIns_id() {
@@ -69,6 +77,22 @@ public class Instructor {
 
     public void setIns_email(String ins_email) {
         this.ins_email = ins_email;
+    }
+
+    public List<Course> getCourse() {
+        return course;
+    }
+
+    public void setCourse(List<Course> course) {
+        this.course = course;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
